@@ -27,7 +27,27 @@ The protected authoring dashboard runs separately from GitHub Pages. Copy `.env.
 
 ## GitHub Pages
 
-For a user site, the GitHub repository is named `<username>.github.io`. In the repository, select **Settings → Pages → Build and deployment → GitHub Actions**. The workflow validates content and publishes `out/` when a commit lands on `main`. Repository sites under a path are supported via the Pages action’s site URL and base path. For a custom domain or local build, set `NEXT_PUBLIC_SITE_URL` and `NEXT_PUBLIC_BASE_PATH` as shown in `.env.example`. Every variable with the `NEXT_PUBLIC_` prefix and everything in published JSON should be treated as public.
+The public site is served from the root of the `gh-pages` branch. Keep editable source and content on `main`. To publish an update, run `npm ci`, `npm test`, and `npm run build` from the source checkout, then commit and push the source. Publish the generated `out/` from a separate Git worktree based on the latest remote deployment branch.
+
+From PowerShell at the repository root, after the build succeeds:
+
+```powershell
+git fetch origin gh-pages
+$deploy = Join-Path ([System.IO.Path]::GetTempPath()) ('portfolio-pages-' + [guid]::NewGuid().ToString('N'))
+git worktree add --detach $deploy origin/gh-pages
+git -C $deploy rm -r -- .
+Get-ChildItem -LiteralPath out -Force | ForEach-Object { Copy-Item -LiteralPath $_.FullName -Destination $deploy -Recurse }
+git -C $deploy add --all
+git -C $deploy diff --cached --stat
+git -C $deploy commit -m 'Publish portfolio update'
+git -C $deploy push origin HEAD:refs/heads/gh-pages
+git worktree remove $deploy
+```
+
+Run the commands in order and stop if one fails. The temporary worktree isolates the deployment files. GitHub Pages rebuilds after the push.
+
+To use the optional GitHub Actions workflow, set **Settings → Pages → Build and deployment → Source** to **GitHub Actions**, then manually run **Publish portfolio** on `main` in the Actions tab. The workflow validates content and deploys `out/`. Repository sites under a path take their URL and base path from the Pages action. For a local custom build, set `NEXT_PUBLIC_SITE_URL` and `NEXT_PUBLIC_BASE_PATH` as shown in `.env.example`. Every `NEXT_PUBLIC_` variable and published JSON field is public.
+
 
 ## Contact and performance
 
