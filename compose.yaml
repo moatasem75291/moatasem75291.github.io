@@ -1,0 +1,22 @@
+services:
+  site:
+    build:
+      context: .
+      target: site
+    ports:
+      - "127.0.0.1:4173:4173"
+  authoring:
+    profiles: ["authoring"]
+    build:
+      context: .
+      target: authoring
+    environment:
+      PORTFOLIO_ADMIN_PASSWORD: ${PORTFOLIO_ADMIN_PASSWORD:-}
+      PORTFOLIO_PUBLIC_ORIGIN: ${PORTFOLIO_PUBLIC_ORIGIN:-https://moatasem75291.github.io}
+      PORTFOLIO_ADMIN_ORIGIN: ${PORTFOLIO_ADMIN_ORIGIN:-http://127.0.0.1:8787}
+    ports:
+      - "127.0.0.1:8787:8787"
+    volumes:
+      - authoring-data:/portfolio/service/data
+volumes:
+  authoring-data:

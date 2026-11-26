@@ -1,0 +1,6 @@
+[
+  {"id":"tazkarti","title":"Data Scientist","org":"Tazkarti","period":"Nov 2026 – Present","detail":"Research and prototype data platforms for analytics, with batch and CDC ingestion, dbt transformations and validation. Compare lakehouse and warehouse designs against the same workload.","order":1,"published":true},
+  {"id":"fixed","title":"Full-Stack Data Scientist","org":"Fixed Solutions","period":"Jan 2025 – Nov 2026","detail":"Built applied AI services for bilingual question answering, Arabic document analysis and identity verification. Connected inference to APIs, storage and user interfaces, and instrumented production services.","order":2,"published":true},
+  {"id":"mentor","title":"Data Science Mentor","org":"Mentors of Data Science","period":"Apr 2024 – Jan 2025","detail":"Mentored aspiring data scientists through practical sessions in machine learning, NLP and computer vision.","order":3,"published":true},
+  {"id":"degree","title":"BSc Computer Science","org":"Helwan University","period":"2020 – 2024","detail":"Completed a computer science degree in Cairo, Egypt.","order":4,"published":true}
+]

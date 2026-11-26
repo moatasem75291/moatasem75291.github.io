@@ -1,0 +1,606 @@
+[
+  {
+    "name": "Large Language Models",
+    "domain": "AI Engineering",
+    "level": "Experimental",
+    "projects": [
+      "research"
+    ],
+    "published": true,
+    "order": 1
+  },
+  {
+    "name": "Retrieval-Augmented Generation",
+    "domain": "AI Engineering",
+    "level": "Production",
+    "projects": [
+      "mof-rag"
+    ],
+    "published": true,
+    "order": 2
+  },
+  {
+    "name": "Graph RAG",
+    "domain": "AI Engineering",
+    "level": "Experimental",
+    "projects": [
+      "mof-rag",
+      "research"
+    ],
+    "published": true,
+    "order": 3
+  },
+  {
+    "name": "Knowledge Graphs",
+    "domain": "AI Engineering",
+    "level": "Experimental",
+    "projects": [
+      "mof-rag",
+      "research"
+    ],
+    "published": true,
+    "order": 4
+  },
+  {
+    "name": "Embedding Models",
+    "domain": "AI Engineering",
+    "level": "Production",
+    "projects": [
+      "mof-rag",
+      "research"
+    ],
+    "published": true,
+    "order": 5
+  },
+  {
+    "name": "Reranking",
+    "domain": "AI Engineering",
+    "level": "Production",
+    "projects": [
+      "mof-rag",
+      "research"
+    ],
+    "published": true,
+    "order": 6
+  },
+  {
+    "name": "LLM Evaluation",
+    "domain": "AI Engineering",
+    "level": "Production",
+    "projects": [
+      "mof-rag"
+    ],
+    "published": true,
+    "order": 7
+  },
+  {
+    "name": "Prompt Engineering",
+    "domain": "AI Engineering",
+    "level": "Production",
+    "projects": [
+      "mof-rag"
+    ],
+    "published": true,
+    "order": 8
+  },
+  {
+    "name": "AI Personalization",
+    "domain": "AI Engineering",
+    "level": "Learning",
+    "projects": [
+      "research"
+    ],
+    "published": true,
+    "order": 9
+  },
+  {
+    "name": "Local LLM Deployment",
+    "domain": "AI Engineering",
+    "level": "Experimental",
+    "projects": [
+      "research"
+    ],
+    "published": true,
+    "order": 10
+  },
+  {
+    "name": "Natural Language Processing",
+    "domain": "Machine Learning & NLP",
+    "level": "Production",
+    "projects": [
+      "research",
+      "eehc-chatbot",
+      "mof-rag"
+    ],
+    "published": true,
+    "order": 11
+  },
+  {
+    "name": "Arabic and English NLP",
+    "domain": "Machine Learning & NLP",
+    "level": "Production",
+    "projects": [
+      "research",
+      "mof-rag"
+    ],
+    "published": true,
+    "order": 12
+  },
+  {
+    "name": "Named Entity Recognition",
+    "domain": "Machine Learning & NLP",
+    "level": "Production",
+    "projects": [
+      "research"
+    ],
+    "published": true,
+    "order": 13
+  },
+  {
+    "name": "Relation Extraction",
+    "domain": "Machine Learning & NLP",
+    "level": "Experimental",
+    "projects": [
+      "research"
+    ],
+    "published": true,
+    "order": 14
+  },
+  {
+    "name": "Text Classification",
+    "domain": "Machine Learning & NLP",
+    "level": "Production",
+    "projects": [],
+    "published": true,
+    "order": 15
+  },
+  {
+    "name": "Topic Modeling",
+    "domain": "Machine Learning & NLP",
+    "level": "Production",
+    "projects": [],
+    "published": true,
+    "order": 16
+  },
+  {
+    "name": "Summarization",
+    "domain": "Machine Learning & NLP",
+    "level": "Production",
+    "projects": [],
+    "published": true,
+    "order": 17
+  },
+  {
+    "name": "OCR",
+    "domain": "Machine Learning & NLP",
+    "level": "Production",
+    "projects": [
+      "ekyc",
+      "mof-rag"
+    ],
+    "published": true,
+    "order": 18
+  },
+  {
+    "name": "Computer Vision",
+    "domain": "Machine Learning & NLP",
+    "level": "Production",
+    "projects": [
+      "ekyc"
+    ],
+    "published": true,
+    "order": 19
+  },
+  {
+    "name": "Face Matching and Liveness Detection",
+    "domain": "Machine Learning & NLP",
+    "level": "Production",
+    "projects": [
+      "ekyc"
+    ],
+    "published": true,
+    "order": 20
+  },
+  {
+    "name": "Apache Kafka",
+    "domain": "Data Engineering",
+    "level": "Experimental",
+    "projects": [
+      "lakehouse"
+    ],
+    "published": true,
+    "order": 21
+  },
+  {
+    "name": "Apache Airflow",
+    "domain": "Data Engineering",
+    "level": "Experimental",
+    "projects": [
+      "lakehouse"
+    ],
+    "published": true,
+    "order": 22
+  },
+  {
+    "name": "Debezium",
+    "domain": "Data Engineering",
+    "level": "Experimental",
+    "projects": [
+      "lakehouse"
+    ],
+    "published": true,
+    "order": 23
+  },
+  {
+    "name": "Change Data Capture",
+    "domain": "Data Engineering",
+    "level": "Experimental",
+    "projects": [
+      "lakehouse"
+    ],
+    "published": true,
+    "order": 24
+  },
+  {
+    "name": "dbt",
+    "domain": "Data Engineering",
+    "level": "Experimental",
+    "projects": [
+      "lakehouse"
+    ],
+    "published": true,
+    "order": 25
+  },
+  {
+    "name": "Data Pipelines",
+    "domain": "Data Engineering",
+    "level": "Experimental",
+    "projects": [
+      "lakehouse"
+    ],
+    "published": true,
+    "order": 26
+  },
+  {
+    "name": "Data Lakehouse",
+    "domain": "Data Engineering",
+    "level": "Experimental",
+    "projects": [
+      "lakehouse"
+    ],
+    "published": true,
+    "order": 27
+  },
+  {
+    "name": "Data Warehousing",
+    "domain": "Data Engineering",
+    "level": "Experimental",
+    "projects": [
+      "lakehouse"
+    ],
+    "published": true,
+    "order": 28
+  },
+  {
+    "name": "Medallion Architecture",
+    "domain": "Data Engineering",
+    "level": "Experimental",
+    "projects": [
+      "lakehouse"
+    ],
+    "published": true,
+    "order": 29
+  },
+  {
+    "name": "Data Validation",
+    "domain": "Data Engineering",
+    "level": "Experimental",
+    "projects": [
+      "lakehouse"
+    ],
+    "published": true,
+    "order": 30
+  },
+  {
+    "name": "Object Storage",
+    "domain": "Data Engineering",
+    "level": "Production",
+    "projects": [
+      "lakehouse",
+      "mof-rag",
+      "ekyc"
+    ],
+    "published": true,
+    "order": 31
+  },
+  {
+    "name": "Apache Iceberg concepts",
+    "domain": "Data Engineering",
+    "level": "Learning",
+    "projects": [
+      "lakehouse"
+    ],
+    "published": true,
+    "order": 32
+  },
+  {
+    "name": "Python",
+    "domain": "Backend & Software",
+    "level": "Production",
+    "projects": [
+      "mof-rag",
+      "ekyc"
+    ],
+    "published": true,
+    "order": 33
+  },
+  {
+    "name": "FastAPI",
+    "domain": "Backend & Software",
+    "level": "Production",
+    "projects": [
+      "mof-rag",
+      "eehc-chatbot",
+      "ekyc"
+    ],
+    "published": true,
+    "order": 34
+  },
+  {
+    "name": "REST APIs",
+    "domain": "Backend & Software",
+    "level": "Production",
+    "projects": [
+      "eehc-chatbot"
+    ],
+    "published": true,
+    "order": 35
+  },
+  {
+    "name": "React",
+    "domain": "Backend & Software",
+    "level": "Production",
+    "projects": [
+      "ekyc"
+    ],
+    "published": true,
+    "order": 36
+  },
+  {
+    "name": "Next.js",
+    "domain": "Backend & Software",
+    "level": "Production",
+    "projects": [
+      "ekyc"
+    ],
+    "published": true,
+    "order": 37
+  },
+  {
+    "name": "Microservices",
+    "domain": "Backend & Software",
+    "level": "Production",
+    "projects": [
+      "eehc-chatbot"
+    ],
+    "published": true,
+    "order": 38
+  },
+  {
+    "name": "OAuth2",
+    "domain": "Backend & Software",
+    "level": "Production",
+    "projects": [
+      "ekyc"
+    ],
+    "published": true,
+    "order": 39
+  },
+  {
+    "name": "JWT",
+    "domain": "Backend & Software",
+    "level": "Production",
+    "projects": [
+      "ekyc"
+    ],
+    "published": true,
+    "order": 40
+  },
+  {
+    "name": "RabbitMQ",
+    "domain": "Backend & Software",
+    "level": "Production",
+    "projects": [
+      "ekyc"
+    ],
+    "published": true,
+    "order": 41
+  },
+  {
+    "name": "Redis",
+    "domain": "Backend & Software",
+    "level": "Production",
+    "projects": [
+      "ekyc"
+    ],
+    "published": true,
+    "order": 42
+  },
+  {
+    "name": "Asynchronous Processing",
+    "domain": "Backend & Software",
+    "level": "Production",
+    "projects": [
+      "ekyc"
+    ],
+    "published": true,
+    "order": 43
+  },
+  {
+    "name": "PostgreSQL",
+    "domain": "Databases & Storage",
+    "level": "Production",
+    "projects": [
+      "mof-rag",
+      "lakehouse"
+    ],
+    "published": true,
+    "order": 44
+  },
+  {
+    "name": "MongoDB",
+    "domain": "Databases & Storage",
+    "level": "Production",
+    "projects": [
+      "eehc-chatbot"
+    ],
+    "published": true,
+    "order": 45
+  },
+  {
+    "name": "Neo4j",
+    "domain": "Databases & Storage",
+    "level": "Experimental",
+    "projects": [
+      "mof-rag",
+      "research"
+    ],
+    "published": true,
+    "order": 46
+  },
+  {
+    "name": "MinIO",
+    "domain": "Databases & Storage",
+    "level": "Production",
+    "projects": [
+      "mof-rag",
+      "ekyc"
+    ],
+    "published": true,
+    "order": 47
+  },
+  {
+    "name": "S3-compatible Storage",
+    "domain": "Databases & Storage",
+    "level": "Production",
+    "projects": [
+      "mof-rag",
+      "ekyc",
+      "lakehouse"
+    ],
+    "published": true,
+    "order": 48
+  },
+  {
+    "name": "SeaweedFS",
+    "domain": "Databases & Storage",
+    "level": "Experimental",
+    "projects": [
+      "lakehouse"
+    ],
+    "published": true,
+    "order": 49
+  },
+  {
+    "name": "Docker",
+    "domain": "Infrastructure & MLOps",
+    "level": "Production",
+    "projects": [
+      "eehc-chatbot",
+      "ekyc"
+    ],
+    "published": true,
+    "order": 50
+  },
+  {
+    "name": "Docker Compose",
+    "domain": "Infrastructure & MLOps",
+    "level": "Production",
+    "projects": [
+      "lakehouse"
+    ],
+    "published": true,
+    "order": 51
+  },
+  {
+    "name": "Kubernetes",
+    "domain": "Infrastructure & MLOps",
+    "level": "Production",
+    "projects": [
+      "eehc-chatbot"
+    ],
+    "published": true,
+    "order": 52
+  },
+  {
+    "name": "Rancher",
+    "domain": "Infrastructure & MLOps",
+    "level": "Production",
+    "projects": [
+      "eehc-chatbot"
+    ],
+    "published": true,
+    "order": 53
+  },
+  {
+    "name": "Prometheus",
+    "domain": "Infrastructure & MLOps",
+    "level": "Production",
+    "projects": [
+      "ekyc"
+    ],
+    "published": true,
+    "order": 54
+  },
+  {
+    "name": "Grafana",
+    "domain": "Infrastructure & MLOps",
+    "level": "Production",
+    "projects": [
+      "ekyc"
+    ],
+    "published": true,
+    "order": 55
+  },
+  {
+    "name": "Linux",
+    "domain": "Infrastructure & MLOps",
+    "level": "Production",
+    "projects": [
+      "eehc-chatbot"
+    ],
+    "published": true,
+    "order": 56
+  },
+  {
+    "name": "NVIDIA GPU Infrastructure",
+    "domain": "Infrastructure & MLOps",
+    "level": "Experimental",
+    "projects": [
+      "research"
+    ],
+    "published": true,
+    "order": 57
+  },
+  {
+    "name": "Model Serving",
+    "domain": "Infrastructure & MLOps",
+    "level": "Experimental",
+    "projects": [
+      "research"
+    ],
+    "published": true,
+    "order": 58
+  },
+  {
+    "name": "Observability",
+    "domain": "Infrastructure & MLOps",
+    "level": "Production",
+    "projects": [
+      "eehc-chatbot",
+      "ekyc"
+    ],
+    "published": true,
+    "order": 59
+  }
+]

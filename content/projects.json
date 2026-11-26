@@ -1,0 +1,73 @@
+[
+  {
+    "id":"mof-rag","number":"01","title":"Ministry of Finance Intelligent RAG","short":"Arabic document intelligence","domain":"AI Engineering","kind":"Applied system","accent":"cyan","order":1,"published":true,
+    "summary":"An Arabic-first retrieval and question-answering system for government documents, from scanned pages to evaluated evidence.",
+    "problem":"A question could depend on a scanned circular, a digital PDF or passages in multiple documents. Corrupted text and incomplete retrieval made it hard to give grounded answers.",
+    "role":"Worked on ingestion quality, Arabic OCR fallback, retrieval and reranking evaluation, production question analysis, and PostgreSQL and object storage integration. Prototyped knowledge graph extraction and entity resolution.",
+    "challenges":"Separate bad OCR and missing pages from search failures. Retrieved passages can be individually relevant while missing evidence needed across sources.",
+    "decision":"Keep OCR fallback conditional on extraction quality. Evaluate retrieval and citing behavior independently, and test graph enrichment as an experiment with a separate baseline.",
+    "evaluation":"Used two benchmark sets of 25 and 22 questions to track Recall@K, mean reciprocal rank, full evidence hits and multi-source hits. Separately reviewed whether answers cited files or pages and handled out-of-corpus questions.",
+    "outcome":"Benchmark B measured 87.1% mean Recall@K and 0.786 MRR across 22 questions. The two sets contain different questions and should be read as separate evaluations.",
+    "lesson":"A high ranking score can coexist with weak citations. An answer-level audit identifies gaps that aggregate retrieval metrics miss.",
+    "next":"Grow the multi-source benchmark and add citation-level checks against a wider range of scanned Arabic documents.",
+    "stack":["Python","FastAPI","Arabic OCR","Embedding Models","Reranking","PostgreSQL","MinIO","Neo4j","LLM Evaluation","Graph RAG","Knowledge Graphs","Retrieval-Augmented Generation"],
+    "stages":[{"name":"Sources","detail":"Collect digital and scanned PDFs with source metadata from object storage and PostgreSQL."},{"name":"Ingest & OCR","detail":"Extract text per page. Route pages with weak text quality to Arabic OCR and retain page metadata."},{"name":"Index","detail":"Segment the text into passages and index embeddings with document and page references."},{"name":"Retrieve","detail":"Match questions to candidate passages using semantic similarity."},{"name":"Rerank","detail":"Reorder retrieved passages for relevance before building context."},{"name":"Answer","detail":"Generate a grounded answer and evaluate evidence coverage and citation behavior."}],
+    "metrics":[{"name":"Set A","sample":25,"recall":0.7667,"mrr":0.6913,"hit":0.72,"multi":0.3333},{"name":"Set B","sample":22,"recall":0.8712,"mrr":0.7856,"hit":0.8182,"multi":0.4}]
+  },
+  {
+    "id":"eehc-chatbot","number":"02","title":"Intelligent Customer Support Chatbot","short":"Conversational AI in production","domain":"AI Engineering","kind":"Production system","accent":"violet","order":2,"published":true,
+    "summary":"A conversational support system for the Egyptian Electricity Holding Company with session context and agent escalation.",
+    "problem":"Support interactions need context across messages, an option to escalate and enough operational visibility to diagnose failed requests.",
+    "role":"Worked with FastAPI, Rasa, MongoDB and Rancher deployments. Investigated deployment issues, analyzed conversation histories and worked on per-user session context and live-agent fallback.",
+    "challenges":"Tie application failures to deployment state and conversation behavior. Preserve a conversation’s context through automated routing and escalation.",
+    "decision":"Treat user sessions as independent state and trace messages across the API, conversational engine and action layer.",
+    "evaluation":"Reviewed conversation records and deployment diagnostics to identify interaction patterns and operational failures.",
+    "outcome":"Analyzed exported conversation histories and investigated deployment failures on the running Kubernetes stack. Public service-level figures are unavailable.",
+    "lesson":"Session continuity needs attention at component boundaries, particularly when an interaction changes ownership.",
+    "next":"Add end-to-end checks for concurrent conversations, fallback and handoff behavior.",
+    "stack":["FastAPI","Rasa","MongoDB","Kubernetes","Rancher","REST APIs","Microservices","Observability"],
+    "stages":[{"name":"Visitor","detail":"A visitor submits a message with a conversation identifier."},{"name":"API","detail":"FastAPI receives the message and routes the request with session context."},{"name":"Conversation","detail":"Rasa interprets the request and selects a response or custom action."},{"name":"State & actions","detail":"Actions run business logic, while MongoDB supports conversation history and analysis."},{"name":"Reply or handoff","detail":"Return a response or route the visitor to an agent when human assistance is needed."}]
+  },
+  {
+    "id":"ekyc","number":"03","title":"Electronic Know Your Customer Platform","short":"Identity verification workflows","domain":"Backend Systems","kind":"Applied system","accent":"cyan","order":3,"published":true,
+    "summary":"A modular verification workflow for identity documents, face matching and liveness, with asynchronous execution and observability.",
+    "problem":"A verification flow spans long-running processing, sensitive submissions and a case review interface, so failure and completion must be visible across services.",
+    "role":"Implemented session and customer validation, face cropping and object storage integration, configurable workflows and interfaces for capture and review. Instrumented service dependencies and built operational dashboards.",
+    "challenges":"Maintain a traceable job across APIs and processing services. Give operators diagnostic context while masking sensitive values.",
+    "decision":"Represent verification as a job with queryable state. Use queue boundaries for slow work and attach correlation context to service logs and metrics.",
+    "evaluation":"Inspect session states, processing failures and dependency measurements in operational dashboards. Public biometric accuracy figures are unavailable.",
+    "outcome":"Added Prometheus instrumentation across HTTP, database, Redis, gRPC, object storage and queues, with Grafana dashboards and correlated audit logs.",
+    "lesson":"A stage-level status map is as important to operations as the final verification result.",
+    "next":"Extend consistency checks for retries and validate accessibility across capture and review screens.",
+    "stack":["Python","FastAPI","React","Next.js","RabbitMQ","Redis","MinIO","OAuth2","JWT","Prometheus","Grafana","Computer Vision","OCR","Face Matching and Liveness Detection","Asynchronous Processing","Observability"],
+    "stages":[{"name":"Submission","detail":"An authenticated session submits identity images and capture metadata."},{"name":"OCR","detail":"Extract and validate identity document fields."},{"name":"Face match","detail":"Compare the document portrait with face capture."},{"name":"Liveness","detail":"Evaluate the live capture and return verification signals."},{"name":"Review","detail":"Record the outcome and expose stage-level jobs and metrics for authorized operators."}]
+  },
+  {
+    "id":"lakehouse","number":"04","title":"Modern Data Platform & Lakehouse","short":"Batch, streaming and validation","domain":"Data Engineering","kind":"Research prototype","accent":"amber","order":4,"published":true,
+    "summary":"A data platform prototype exploring batch ingestion, CDC and analytics-ready data through the Bronze, Silver and Gold layers.",
+    "problem":"A platform must ingest source changes, support repeatable transforms and deliver trustworthy analytics without operational complexity that the workload does not justify.",
+    "role":"Prototyped PostgreSQL batch and CDC ingestion, Airflow orchestration, dbt transformations, and data validation. Compared warehouse and lakehouse architecture choices.",
+    "challenges":"Keep snapshots and CDC events aligned. Check transformation outputs and failure recovery through the batch and streaming paths.",
+    "decision":"Preserve raw data before applying contracts and business models. Compare warehouse and lakehouse options with the same validation questions.",
+    "evaluation":"Exercised pipeline stages and dbt checks on project data. Investigated configuration and orchestration errors during testing.",
+    "outcome":"Implemented batch and CDC pipeline prototypes using PostgreSQL, Airflow, Kafka and Debezium, with dbt models and S3-compatible SeaweedFS storage. Apache Iceberg catalog choices were researched.",
+    "lesson":"The storage format, orchestration and consumption layers have different responsibilities. Model them separately when comparing architectures.",
+    "next":"Test replay and schema evolution, and compare an Iceberg-backed path against the warehouse baseline.",
+    "stack":["PostgreSQL","Apache Airflow","Debezium","Apache Kafka","Change Data Capture","dbt","SeaweedFS","Object Storage","Data Lakehouse","Data Warehousing","Medallion Architecture","Data Validation","Data Pipelines","Apache Iceberg concepts"],
+    "stages":[{"name":"PostgreSQL","detail":"Start with a source database and a defined snapshot boundary."},{"name":"Batch & CDC","detail":"Orchestrate batches with Airflow and capture database changes through Debezium and Kafka."},{"name":"Bronze","detail":"Retain source records and change events in a raw layer."},{"name":"Silver","detail":"Clean, reconcile and validate source data through transformations."},{"name":"Gold","detail":"Expose modeled facts and metrics for consumption."}]
+  },
+  {
+    "id":"research","number":"05","title":"AI Research & Experimental Systems","short":"Models, retrieval and language","domain":"Research","kind":"Experiment collection","accent":"violet","order":5,"published":true,
+    "summary":"Experiments with graph extraction, Arabic NLP, embedding retrieval and local model serving.",
+    "problem":"Model quality, hardware limits and downstream use vary enough to require small controlled experiments.",
+    "role":"Prototyped multilingual entity and relation extraction, entity resolution and Neo4j graph ingestion. Compared multilingual embeddings and reranking. Tested quantized models behind a local inference API.",
+    "challenges":"Arabic text normalization, ambiguous entity links and accelerator memory can affect results in different ways.",
+    "decision":"Use a small benchmark and track individual errors before integrating a model. Keep graph personalization as an exploration until there is a clear evaluation baseline.",
+    "evaluation":"Compared retrieval rankings and false matches, inspected entity extraction output and tried CPU fallback when GPU memory was insufficient.",
+    "outcome":"Built a graph ingestion proof of concept and exercised local LLM serving and multilingual retrieval configurations.",
+    "lesson":"Configuration changes are easier to interpret when the data, candidate set and evaluation labels are frozen.",
+    "next":"Define a reproducible personalization benchmark and expand local serving measurements across hardware.",
+    "stack":["Large Language Models","Graph RAG","Knowledge Graphs","Natural Language Processing","Arabic and English NLP","Named Entity Recognition","Relation Extraction","Embedding Models","Reranking","AI Personalization","Model Serving","Local LLM Deployment","NVIDIA GPU Infrastructure","Neo4j"],
+    "stages":[{"name":"Corpus","detail":"Choose bilingual examples and establish evaluation labels."},{"name":"Extract","detail":"Identify entities and relations, then resolve duplicate mentions."},{"name":"Compare","detail":"Compare graph, retrieval and local inference configurations against a baseline."},{"name":"Record","detail":"Review failure examples and record limits and follow-up questions."}]
+  }
+]

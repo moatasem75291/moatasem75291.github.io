@@ -1,0 +1,30 @@
+{
+  "name": "Moatasem Mohammed",
+  "role": "Data Scientist",
+  "employer": "Tazkarti",
+  "location": "Egypt",
+  "status": "Open to technical conversations",
+  "email": "",
+  "linkedin": "https://www.linkedin.com/in/mo3tsm2212",
+  "github": "https://github.com/moatasem75291",
+  "resume": "/resume.pdf",
+  "resumeVersion": "2026-11",
+  "contactEndpoint": "",
+  "analyticsEndpoint": "",
+  "about": [
+    "My work started with data science and applied NLP. Building systems around those models changed the questions I ask. Where does the data come from? What happens when a document is scanned, a dependency fails, or a model returns a plausible answer with weak evidence?",
+    "I work across that full path, from Arabic document processing and retrieval evaluation to APIs, queues, deployment and observability. At Tazkarti, I’m exploring how batch and streaming data pipelines can support reliable analytics."
+  ],
+  "learning": [
+    "Building applications with foundation models",
+    "Evaluating multi-source retrieval and answer grounding",
+    "Comparing lakehouse catalogs and Apache Iceberg concepts"
+  ],
+  "principles": [
+    {"title":"Understand the problem first","body":"Start by identifying who uses the system, what the data allows and what failure costs. Let those constraints guide the architecture."},
+    {"title":"Experiment before assuming","body":"Build a baseline, test it on representative examples and inspect the failures before adding another model or component."},
+    {"title":"Design systems","body":"Follow the data and the failure paths across component boundaries, from inputs and storage to the person waiting for the result."},
+    {"title":"Build for reliability","body":"Give long-running jobs checkpoints, observable states and a safe way to retry. Make it possible to diagnose failures without exposing sensitive inputs."},
+    {"title":"Evaluate and improve","body":"Review misses as well as averages. A benchmark should tell you which part of the system needs attention next."}
+  ]
+}

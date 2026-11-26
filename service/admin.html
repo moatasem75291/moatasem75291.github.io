@@ -1,0 +1,15 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Portfolio authoring</title>
+<style>
+:root{color-scheme:dark;background:#101718;color:#edf3ef;font:17px/1.5 system-ui}body{max-width:56rem;margin:2rem auto;padding:0 1rem}
+h1{letter-spacing:-.035em}label{display:block;margin:.75rem 0 .25rem}button,select{background:#192624;color:#a9f5e9;border:1px solid #60827b;padding:.45rem;font:inherit;border-radius:4px;margin:.35rem .35rem .35rem 0}
+textarea{box-sizing:border-box;width:100%;min-height:24rem;border:1px solid #60827b;border-radius:4px;background:#0b0f10;color:#edf3ef;padding:.8rem;font: .9rem/1.5 monospace}p{color:#b8c9c5}pre{white-space:pre-wrap;overflow-wrap:anywhere}
+</style>
+<h1>Portfolio authoring</h1>
+<p>Edit private drafts, then export the released collection to the portfolio’s <code>content/</code> directory. GitHub publishes changes after a passing build.</p>
+<label for="collection">Collection</label><select id="collection"></select>
+<label for="editor">Draft JSON</label><textarea id="editor" spellcheck="false"></textarea>
+<div><button id="save">Save draft</button><button id="release">Prepare release</button><button id="download">Download released JSON</button></div>
+<p id="status" role="status"></p>
+<div><button id="inbox">View inbox</button><button id="measurements">View performance</button></div><pre id="output"></pre>
+<script type="module" src="/admin.js"></script></html>

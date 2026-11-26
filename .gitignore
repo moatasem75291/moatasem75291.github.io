@@ -1,0 +1,11 @@
+node_modules/
+.next/
+out/
+coverage/
+test-results/
+*.tsbuildinfo
+.env*
+!.env.example
+service/data/
+
+next-env.d.ts

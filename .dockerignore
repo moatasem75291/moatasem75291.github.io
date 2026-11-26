@@ -1,0 +1,8 @@
+.git
+node_modules
+.next
+out
+.venv
+.env*
+service/data
+test-results
