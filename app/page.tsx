@@ -6,7 +6,7 @@ import { Expertise, Principles, Timeline } from '@/components/expertise';
 import { ContactForm, PerformanceReporter } from '@/components/contact';
 import { Lab } from '@/components/lab';
 import { Eyebrow, Icon, SectionHeading } from '@/components/ui';
-import { books, localAsset, notes, profile, projects, siteUrl, skills } from '@/lib/content';
+import { books, localAsset, notes, profile, projects, resumeFilename, siteUrl, skills } from '@/lib/content';
 
 export const metadata: Metadata = { alternates: { canonical: siteUrl + '/' } };
 
@@ -20,7 +20,7 @@ export default function Home() {
           <p className="hero-identity">Moatasem Mohammed</p>
           <p className="hero-roles">Data Scientist. AI Engineer. Systems Builder.</p>
           <p className="hero-description">Turning complex data and intelligence into systems that work in the real world.</p>
-          <div className="hero-actions"><Link className="button primary" href="#work">Explore my work <Icon name="arrow" size={17}/></Link><a className="button secondary" href={localAsset(profile.resume)} download>Download résumé <Icon name="down" size={17}/></a></div>
+          <div className="hero-actions"><Link className="button primary" href="#work">Explore my work <Icon name="arrow" size={17}/></Link><a className="button secondary" href={localAsset(profile.resume)} download={resumeFilename}>Download résumé <Icon name="down" size={17}/></a></div>
           <div className="hero-status"><span><i /> {profile.role} @ {profile.employer}</span><span className="status-divider" aria-hidden="true" /><Link href="#about">About me <Icon name="up" size={13} /></Link></div>
         </div>
         <SystemMap />
@@ -69,7 +69,7 @@ export default function Home() {
     </section>
     <section className="section-block contact-section" id="contact"><div className="wrap contact-grid">
       <div><Eyebrow>CONTACT</Eyebrow><h2>Let’s build something<br /> that matters.</h2><p>{profile.status}</p>
-        <div className="contact-links"><a href={profile.linkedin}>LinkedIn <Icon name="up" size={16}/></a><a href={profile.github}>GitHub <Icon name="up" size={16}/></a>{profile.email && <a href={'mailto:' + profile.email}>Email <Icon name="mail" size={16}/></a>}<a href={localAsset(profile.resume)} download>Résumé <Icon name="down" size={16}/></a></div>
+        <div className="contact-links"><a href={profile.linkedin}>LinkedIn <Icon name="up" size={16}/></a><a href={profile.github}>GitHub <Icon name="up" size={16}/></a>{profile.email && <a href={'mailto:' + profile.email}><Icon name="mail" size={16}/>{profile.email}</a>}<a href={localAsset(profile.resume)} download={resumeFilename}>Résumé <Icon name="down" size={16}/></a></div>
       </div>
       <ContactForm />
     </div></section>

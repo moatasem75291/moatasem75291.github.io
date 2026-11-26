@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
-import { localAsset, profile, projects, notes, skills } from '@/lib/content';
+import { localAsset, profile, projects, notes, resumeFilename, skills } from '@/lib/content';
 import { Icon } from './ui';
 
 const nav = [['Work', 'work'], ['Expertise', 'expertise'], ['The Lab', 'lab'], ['About', 'about']];
@@ -86,7 +86,7 @@ export function Header() {
         {results.map(result => 'theme' in result && result.theme ?
           <button className="command-result" type="button" key={result.text} onClick={() => { changeTheme(); dialog.current?.close(); }}>{result.text}<span>{result.caption}</span></button> :
           'asset' in result && result.asset ?
-            <a className="command-result" key={result.text} href={localAsset(result.asset)} download onClick={() => dialog.current?.close()}>{result.text}<span>{result.caption}</span></a> :
+            <a className="command-result" key={result.text} href={localAsset(result.asset)} download={resumeFilename} onClick={() => dialog.current?.close()}>{result.text}<span>{result.caption}</span></a> :
             <Link className="command-result" key={result.text} href={result.href || '/'} onClick={() => dialog.current?.close()}>{result.text}<span>{result.caption}</span></Link>)}
       </div>
     </dialog>

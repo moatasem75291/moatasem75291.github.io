@@ -22,6 +22,7 @@ function published<T extends Publishable>(items: readonly T[]): T[] {
 }
 
 export const profile = profileData;
+export const resumeFilename = profile.name.replace(/\s+/g, '_') + '_CV.pdf';
 export const projects = published<Project>(projectData);
 export const skills = published<Skill>(skillData);
 export const journey = published(journeyData);

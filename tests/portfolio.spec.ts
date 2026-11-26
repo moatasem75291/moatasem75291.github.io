@@ -28,7 +28,7 @@ test('command palette surfaces evidence and theme persists after reload', async 
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'light');
 });
 
-test('lab builds a grounded response and contact prepares a draft', async ({ page }) => {
+test('lab builds a grounded response and contact links the public email and draft', async ({ page }) => {
   await page.goto('/');
   await page.getByRole('button', { name: 'How do I read a scanned PDF?' }).click();
   await page.getByRole('button', { name: 'Assemble answer' }).click();
@@ -36,15 +36,24 @@ test('lab builds a grounded response and contact prepares a draft', async ({ pag
   await page.getByRole('button', { name: 'Ask my portfolio' }).click();
   await page.getByRole('button', { name: 'Has he worked with Kubernetes?' }).click();
   await expect(page.locator('.lab-output').getByRole('link', { name: 'Intelligent Customer Support Chatbot' })).toBeVisible();
+  await expect(page.locator('#contact .contact-links').getByRole('link', { name: 'moatasem.mohammed226@gmail.com' })).toHaveAttribute('href', 'mailto:moatasem.mohammed226@gmail.com');
   await page.getByRole('textbox', { name: 'Name', exact: true }).fill('Sam Test');
   await page.getByRole('textbox', { name: 'Email' }).fill('sam@example.com');
   await page.getByRole('textbox', { name: 'Message', exact: true }).fill('I would like to discuss a collaboration.');
   await page.getByRole('button', { name: 'Prepare message' }).click();
   await expect(page.getByRole('textbox', { name: 'Message draft' })).toHaveValue(/discuss a collaboration/);
+  const mailto = await page.getByRole('link', { name: 'Open email draft' }).getAttribute('href');
+  const draft = new URL(mailto!);
+  expect(draft.pathname).toBe('moatasem.mohammed226@gmail.com');
+  expect(draft.searchParams.get('subject')).toBe('AI engineering');
+  expect(draft.searchParams.get('body')).toContain('sam@example.com');
 });
 
 test('several pages render, viewport fits and homepage passes automated accessibility checks', async ({ page, request }) => {
   await page.goto('/');
+  const download = page.waitForEvent('download');
+  await page.getByRole('link', { name: 'Download résumé', exact: true }).click();
+  expect((await download).suggestedFilename()).toBe('Moatasem_Mohammed_CV.pdf');
   const response = await request.get('/resume.pdf');
   expect(response.headers()['content-type']).toContain('application/pdf');
   expect((await request.get('/sitemap.xml')).ok()).toBeTruthy();
